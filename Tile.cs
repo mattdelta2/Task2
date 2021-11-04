@@ -6,16 +6,54 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Tile
+    public abstract class Tile
     {
-        public int x;
-        public int y;
-        public enum tileType
+        protected int x;
+        public int X
         {
-            Hero,
-            Gold,
-            Enemy,
+            get { return x; }
+            set { x = value; }
         }
+
+        protected int y;
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+
+        }
+        private TileType typeoftile;
+
+        public TileType TYPEOFTILE
+        {
+            get { return typeoftile; }
+            set { typeoftile = value; }
+
+
+        }
+
+        private string symbol;
+        public string SYMBOL
+        {
+            get { return symbol; }
+            set { symbol = value; }
+        }
+
+
+        public Tile(int _x, int _y,string _SYMBOL, TileType _TYPEOFTILE )
+        {
+            X = _x;
+            Y = _y;
+            SYMBOL = _SYMBOL;
+            TYPEOFTILE = _TYPEOFTILE;
+
+
+        }
+
+
+
+
+
 
 
 

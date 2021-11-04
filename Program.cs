@@ -6,6 +6,28 @@ using System.Windows.Forms;
 
 namespace Task2
 {
+    public enum TileType
+    {
+        Hero,
+        Enemy,
+        Gold,
+        Weapon,
+        Barrier,
+        Empty
+    }
+
+    public enum MovementDirtection
+    {
+        NoMovement,
+        Up,
+        Down,
+        Left,
+        Right,
+
+
+    }
+
+    
     static class Program
     {
         /// <summary>

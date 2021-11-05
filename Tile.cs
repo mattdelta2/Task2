@@ -50,12 +50,9 @@ namespace Task2
 
         }
 
-
-
-
-
-
-
-
+        public static implicit operator Tile(Obstacle v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

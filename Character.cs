@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Character
+   public  abstract class Character
     {
         protected int hp;
         public int HP
@@ -143,5 +143,6 @@ namespace Task2
         }
 
         public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
+        public abstract override string ToString();
     }
 }

@@ -12,14 +12,62 @@ namespace Task2
         {
 
         }
+        protected int x;
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
 
-        public int Y { get; private set; }
-        public int X { get; private set; }
-        public object FileType { get; private set; }
-        public IEnumerable<Tile> VISION { get; private set; }
-        public object DAMAGE { get; private set; }
-        public object HP { get; private set; }
-        public object MAXHP { get; private set; }
+        protected int y;
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+
+        }
+        private TileType typeoftile;
+
+        public TileType TYPEOFTILE
+        {
+            get { return typeoftile; }
+            set { typeoftile = value; }
+
+
+        }
+
+        private string symbol;
+        public string SYMBOL
+        {
+            get { return symbol; }
+            set { symbol = value; }
+        }
+
+
+        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        {
+            X = _x;
+            Y = _y;
+            SYMBOL = _SYMBOL;
+            TYPEOFTILE = _TYPEOFTILE;
+
+
+        }
+        private List<Tile> vision;
+        public List<Tile> VISION
+        {
+            get { return vision; }
+            set { vision = value; }
+
+
+        }
+
+        private MovementDirtection movement;
+        public MovementDirtection MOVEMENT
+        {
+            get { return movement; }
+            set { movement = value; }
+        }
 
         private bool CheckForValidMove(MovementDirection characterMove)
         {

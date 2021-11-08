@@ -28,6 +28,50 @@ namespace Task2
             set { enemies = value; }
 
         }
+
+        protected int x;
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+        protected int y;
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+
+        }
+        private TileType typeoftile;
+
+        public TileType TYPEOFTILE
+        {
+            get { return typeoftile; }
+            set { typeoftile = value; }
+
+
+        }
+
+        private string symbol;
+        public string SYMBOL
+        {
+            get { return symbol; }
+            set { symbol = value; }
+        }
+
+
+        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        {
+            X = _x;
+            Y = _y;
+            SYMBOL = _SYMBOL;
+            TYPEOFTILE = _TYPEOFTILE;
+
+        
+
+
+        }
         private List<Tile> vision;
         public List<Tile> VISION
         {
@@ -35,6 +79,13 @@ namespace Task2
             set { vision = value; }
 
 
+        }
+
+        private MovementDirtection movement;
+        public MovementDirtection MOVEMENT
+        {
+            get { return movement; }
+            set { movement = value; }
         }
 
 
@@ -64,7 +115,7 @@ namespace Task2
             }
         }
 
-        Create(TileType.Hero)
+        private Create(TileType.Hero)
         {
             for(int e = 0; e< _NUMBEROFENEMIES; e++)
             {

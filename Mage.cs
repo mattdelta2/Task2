@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-      public abstract class Enemy
+    class Mage
     {
-        protected Random RANDOM_NUMBER_GENERATOR = new Random();
 
-        protected Enemy(int _X, int _Y, TileType _TYPEOFFILE, string _SYMBOL, int _DAMAGE, int _STARTINGHP, int _MAXHP )
+        public Mage(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL = "G", int _DAMAGE = 5, int _STARTINGHP = 5, int _MAXHP = 5)
         {
-            DAMAGE = _DAMAGE;
-            HP = _STARTINGHP;
-            MAXHP = _MAXHP; 
-
         }
-
         protected int x;
         public int X
         {
@@ -69,8 +63,22 @@ namespace Task2
         }
 
         public object HP { get; private set; }
-        public int MAXHP { get; private set; }
         public object DAMAGE { get; private set; }
+
+        public virtual bool CheckRange(Character Target)
+        {
+            int ReachableDistance = 1;
+            if (DistanceTo(Target) <= ReachableDistance)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private int DistanceTo(Character target)
+        {
+            throw new NotImplementedException();
+        }
 
         public override string ToString()
         {
@@ -80,6 +88,11 @@ namespace Task2
             Info += "[" + DAMAGE.ToString() + "]";
             return Info;
         }
-
     }
 }
+
+
+
+
+
+ 

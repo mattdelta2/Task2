@@ -58,6 +58,15 @@ namespace Task2
 
 
         }
+        private List<Tile> vision;
+        public List<Tile> VISION
+        {
+            get { return vision; }
+            set { vision = value; }
+
+
+        }
+        protected Random RANDOM_NUMBER_GENERATOR = new Random();
 
 
 

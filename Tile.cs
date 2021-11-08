@@ -54,5 +54,10 @@ namespace Task2
         {
             throw new NotImplementedException();
         }
+
+        public static implicit operator Tile(EmptyTile v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

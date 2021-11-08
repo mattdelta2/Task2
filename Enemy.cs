@@ -18,6 +18,10 @@ namespace Task2
 
         }
 
+        public object VISION { get; internal set; }
+        public int X { get; internal set; }
+        public int Y { get; internal set; }
+
         public override string ToString()
         {
             string Info = GetType().Name + "\n";

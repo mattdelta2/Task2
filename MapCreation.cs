@@ -28,8 +28,18 @@ namespace Task2
             set { enemies = value; }
 
         }
+        private List<Tile> vision;
+        public List<Tile> VISION
+        {
+            get { return vision; }
+            set { vision = value; }
+
+
+        }
+
 
         protected Random RANDOM_NUMBER_GENERATOR = new Random();
+        private int _NUMBEROFENEMIES;
 
         public MapCreation(int _MINWIDTH, int _MINHEIGHT, int _MAXWIDTH, int _MAXHEIGHT, int _NUMBEROFENEMIES)
         {

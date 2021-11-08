@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Hero
+    public class Hero : HeroBase
     {
         public Hero(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE )
         {
@@ -21,15 +21,9 @@ namespace Task2
         public object HP { get; private set; }
         public object MAXHP { get; private set; }
 
-        public override MovementDirection ReturnMove(MovementDirection CharacterMove  = MovementDirection.NoMovement)
+        private bool CheckForValidMove(MovementDirection characterMove)
         {
-            if (CheckForValidMove(CharacterMove))
-            {
-                return CharacterMove;
-
-            }
-            else return MovementDirection.NoMovement;
-
+            throw new NotImplementedException();
         }
 
         public override string ToString()

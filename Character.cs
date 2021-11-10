@@ -144,5 +144,11 @@ namespace Task2
 
         public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
         public abstract override string ToString();
+
+
+        public static void Pickup(Item i)
+        {
+
+        }
     }
 }

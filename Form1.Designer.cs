@@ -41,6 +41,7 @@ namespace Task2
             this.lblMap.Size = new System.Drawing.Size(38, 15);
             this.lblMap.TabIndex = 0;
             this.lblMap.Text = "label1";
+            this.lblMap.Click += new System.EventHandler(this.lblMap_Click);
             // 
             // Info
             // 

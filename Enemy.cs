@@ -245,7 +245,7 @@ namespace Task2
 
         public virtual bool CheckRange(Character Target)
         {
-            int ReachableDistance = 1;
+            int ReachableDistance = 2;
             if (DistanceTo(Target) <= ReachableDistance)
             {
                 return true;

@@ -102,6 +102,7 @@ namespace Task2
             ENIMIES = new List<Enemy>();
             UpdateVision();
             
+            
         }
 
         public void UpdateVision()
@@ -117,11 +118,14 @@ namespace Task2
             }
         }
 
+
         private Create(TileType.Hero)
+
         {
             for(int e = 0; e< _NUMBEROFENEMIES; e++)
             {
                 Create(TileType.Enemy);
+                return TileType.Enemy;
             }
         }
 
@@ -137,16 +141,20 @@ namespace Task2
                     EmptyTile NewEmptyTile = new EmptyTile(X, Y, " ", TypeOfTile);
                     MAPCONTAINER[X, Y] = NewEmptyTile;
                     break;
+
                 case TileType.Hero:
-                    int HeroY = RANDOM_NUMBER_GENERATOR.Next(0, MAPWIDTH);
-                    int HeroX = RANDOM_NUMBER_GENERATOR.Next(0, MAPHEIGHT);
+                    int HeroY = RANDOM_NUMBER_GENERATOR.Next(1, MAPWIDTH);
+                    int HeroX = RANDOM_NUMBER_GENERATOR.Next(1, MAPHEIGHT);
                     while (MAPCONTAINER[HeroX, HeroY].TYPEOFTILE != TileType.Empty)
                     {
                         HeroX = RANDOM_NUMBER_GENERATOR.Next(0, MAPWIDTH);
                         HeroY = RANDOM_NUMBER_GENERATOR.Next(0, MAPHEIGHT);
                     }
             }
+            
         }
+
+        
 
 
     }

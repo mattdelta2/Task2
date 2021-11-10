@@ -19,5 +19,29 @@ namespace Task2
 
         protected Random RANDOM_NUMBER_GENERATOR = new Random();
 
+        protected int x;
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+        protected int y;
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+
+        }
+        MapCreation()
+        {
+            x = RANDOM_NUMBER_GENERATOR.Next(1,6);
+            y = RANDOM_NUMBER_GENERATOR.Next(1,6);
+
+            
+
+
+        }
+
     }
 }

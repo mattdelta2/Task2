@@ -112,80 +112,12 @@ namespace Task2
         public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
         public abstract override string ToString();
 
-        public override string ToString()
+
+        public static void Pickup(Item i)
         {
-            string INFO = "Player Stats: \n";
-            INFO += "HP: " + HP.ToString() + "/" + MAXHP.ToString() + "\n";
-            INFO += "Damage: " + DAMAGE.ToString();
+
         }
-
-        private bool CheckForValidMovement(MovementDirection CharacterMove)
-        {
-            bool IsValid = false;
-            switch (CharacterMove)
-            {
-                case MovementDirection.Right:
-                    foreach (Tile T in VISION)
-                    {
-                        if (T.X == X + 1)
-                        {
-                            if (T.TYPEOFTILE == TileType.Empty)
-                            {
-                                IsValid = true;
-                                break;
-                            }
-                        }
-                    }
-                    break;
-
-                case MovementDirection.Up:
-                    foreach (Tile T in VISION)
-                    {
-                        if (T.Y == Y + 1)
-                        {
-                            if (T.TYPEOFTILE == TileType.Empty)
-                            {
-                                IsValid = true;
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                case MovementDirection.Left:
-                    foreach (Tile T in VISION)
-                    {
-                        if (T.X == X - 1)
-                        {
-                            if (T.TYPEOFTILE == TileType.Empty)
-                            {
-                                IsValid = true;
-                                break;
-                            }
-                        }
-                    }
-                    break;
-
-                case MovementDirection.Down:
-                    foreach (Tile T in VISION)
-                    {
-                        if (T.Y == Y - 1)
-                        {
-                            if (T.TYPEOFTILE == TileType.Empty)
-                            {
-                                IsValid = true;
-                                break;
-
-                            }
-                        }
-                    }
-                    break;
-
-            }
-        }
-
-       
-
-    }   
+    }
     public class Character : Hero
     {
         public Character(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE) :
@@ -212,11 +144,12 @@ namespace Task2
         public virtual bool CheckRange(Character Target)
         {
             int ReachableDistance = 1;
-            if (DistanceTo(Target) <= ReachableDistance)
+            if (DistanceTo(Target) > ReachableDistance)
+                return false;
+            else
             {
                 return true;
             }
-            else return false;
         }
 
         private int DistanceTo(Character target)

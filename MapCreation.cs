@@ -88,6 +88,8 @@ namespace Task2
             set { movement = value; }
         }
 
+        public int MAPWIDTH { get; private set; }
+        public int MAPHEIGHT { get; private set; }
 
         protected Random RANDOM_NUMBER_GENERATOR = new Random();
         private int _NUMBEROFENEMIES;

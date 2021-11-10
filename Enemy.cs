@@ -109,7 +109,7 @@ namespace Task2
         }
         private TileType typeoftile;
 
-        public TileType TYPEOFTILE
+        public new TileType TYPEOFTILE
         {
             get { return typeoftile; }
             set { typeoftile = value; }
@@ -142,7 +142,7 @@ namespace Task2
 
 
         }
-        protected Random RANDOM_NUMBER_GENERATOR = new Random();
+        protected new Random RANDOM_NUMBER_GENERATOR = new Random();
 
 
 
@@ -151,7 +151,7 @@ namespace Task2
         {
             int RandomTileIndex = RANDOM_NUMBER_GENERATOR.Next(0, VISION.Count);
 
-            while (VISION[RandomTileIndex].TYPEOFFILE.Equals(typeof(EmptyTile)))
+            while (VISION[RandomTileIndex].TYPEOFTILE.Equals(typeof(EmptyTile)))
             {
                 RandomTileIndex = RANDOM_NUMBER_GENERATOR.Next(0, VISION.Count);
 
@@ -163,7 +163,7 @@ namespace Task2
 
 
             }
-            else if (VISION[RandomTileIndex].x < X) //MoveLeft
+            else if (VISION[RandomTileIndex].X < X) //MoveLeft
             {
                 return MovementDirection.Left;
             }
@@ -171,7 +171,7 @@ namespace Task2
             {
                 return MovementDirection.Down;
             }
-            else if (VISION[RandomTileIndex].y < Y) //MoveUp
+            else if (VISION[RandomTileIndex].Y < Y) //MoveUp
             {
                 return MovementDirection.Up;
             }

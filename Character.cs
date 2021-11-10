@@ -150,5 +150,10 @@ namespace Task2
         {
 
         }
+
+        internal void Attack()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

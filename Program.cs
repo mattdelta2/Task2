@@ -13,7 +13,8 @@ namespace Task2
         Gold,
         Weapon,
         Barrier,
-        Empty
+        Empty,
+        Obstacle
     }
 
     public enum MovementDirtection

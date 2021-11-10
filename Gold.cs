@@ -9,31 +9,24 @@ namespace Task2
     class Gold
     {
 
-        private int GOLD;
+        int RANDOMNUMBERGENERATOR = new Random().Next(1, 6);
 
-        public int gold
+        public Gold(int x, int y, TileType tileType, Tile[] tiles, char symbol = '$') : base(x,
+                                                                                             y,
+                                                                                             symbol,
+                                                                                             tileType)
         {
-            get { return GOLD; }
-            set { gold = value; }
+
         }
 
-        protected Random RANDOM_NUMBER_GENERATOR = new Random();
-
-        protected int x;
-        public int X
+        private int GoldAmount(Character target)
         {
-            get { return x; }
-            set { x = value; }
-        }
-
-        protected int y;
-        public int Y
-        {
-            get { return y; }
-            set { y = value; }
-
+            return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
         }
 
 
     }
+
+
+}
 }

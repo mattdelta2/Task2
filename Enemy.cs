@@ -136,6 +136,15 @@ namespace Task2
 
 
         }
+
+        public Goblin(int v1, int v2, TileType enemy, Tile[] tiles)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.enemy = enemy;
+            this.tiles = tiles;
+        }
+
         private List<Tile> vision;
         public List<Tile> VISION
         {
@@ -145,9 +154,10 @@ namespace Task2
 
         }
         protected new Random RANDOM_NUMBER_GENERATOR = new Random();
-
-
-
+        private int v1;
+        private int v2;
+        private TileType enemy;
+        private Tile[] tiles;
 
         public override MovementDirection ReturnMove(MovementDirtection CharacterMove = MovementDirtection.NoMovement)
         {
@@ -236,7 +246,21 @@ namespace Task2
 
 
         }
+
+        public Mage(int v1, int v2, TileType enemy, Tile[] tiles)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.enemy = enemy;
+            this.tiles = tiles;
+        }
+
         private List<Tile> vision;
+        private int v1;
+        private int v2;
+        private TileType enemy;
+        private Tile[] tiles;
+
         public List<Tile> VISION
         {
             get { return vision; }

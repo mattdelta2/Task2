@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public abstract class Hero
+    public abstract class Hero : HeroBase1
     {
         public Hero(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
         {
@@ -54,12 +54,12 @@ namespace Task2
 
         }
 
-        public Hero(int x, int y, TileType tYPEOFTILE, string sYMBOL)
+        public Hero(int _x, int _y, TileType tYPEOFTILE, string _SYMBOL)
         {
-            this.x = x;
-            this.y = y;
+            this.x = _x;
+            this.y = _y;
             typeoftile = tYPEOFTILE;
-            symbol = sYMBOL;
+            symbol = _SYMBOL;
         }
 
         private List<Tile> vision;
@@ -111,18 +111,19 @@ namespace Task2
 
         public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
         public abstract override string ToString();
-
-
-        public static void Pickup(Item i)
-        {
-
-        }
     }
     public class Character : Hero
     {
         public Character(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE) :
         base(_X, _Y, _TYPEOFTILE, _SYMBOL)
         {
+
+            SYMBOL = _SYMBOL;
+            HP = _HP;
+            MAXHP = _MAXHP;
+            DAMAGE = _DAMAGE;
+
+            VISION = new List<Tile>();
 
 
         }
@@ -141,6 +142,11 @@ namespace Task2
             else return false;
         }
 
+        private int DistanceTo(Character target)
+        {
+            return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
+        }
+
         public virtual bool CheckRange(Character Target)
         {
             int ReachableDistance = 1;
@@ -152,12 +158,16 @@ namespace Task2
             }
         }
 
-        private int DistanceTo(Character target)
-        {
-            return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
-        }
 
-        public abstract override string ToString();
+
+        public override string ToString()
+        {
+            string Info = GetType().Name + "\n";
+            Info += "at [" + X.ToString() + "," + Y.ToString() + "] \n";
+            Info += HP.ToString() + " HP \n";
+            Info += "[" + DAMAGE.ToString() + "]";
+            return Info;
+        }
     }
 
 

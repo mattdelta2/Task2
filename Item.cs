@@ -27,6 +27,14 @@ namespace Task2
             set { _Y = value; }
 
         }
+
+        string[] ITEMS = {"GOLD", "items" };
+
+        
+        
+        
+
+        
     }
 }
 

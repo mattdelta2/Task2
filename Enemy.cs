@@ -132,6 +132,8 @@ namespace Task2
             SYMBOL = _SYMBOL;
             TYPEOFTILE = _TYPEOFTILE;
 
+            VISION = new List<Tile>();
+
 
         }
         private List<Tile> vision;
@@ -228,6 +230,9 @@ namespace Task2
             Y = _y;
             SYMBOL = _SYMBOL;
             TYPEOFTILE = _TYPEOFTILE;
+
+
+            VISION = new List<Tile>();
 
 
         }

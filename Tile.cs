@@ -59,5 +59,11 @@ namespace Task2
         {
             throw new NotImplementedException();
         }
+
+        protected Character(int _x, int _y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
+        {
+            SYMBOL = _SYMBOL;
+            HP
+        }
     }
 }

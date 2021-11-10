@@ -33,15 +33,7 @@ namespace Task2
             set { y = value; }
 
         }
-        MapCreation()
-        {
-            x = RANDOM_NUMBER_GENERATOR.Next(1,6);
-            y = RANDOM_NUMBER_GENERATOR.Next(1,6);
 
-            
-
-
-        }
 
     }
 }

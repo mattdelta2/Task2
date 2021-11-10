@@ -15,6 +15,7 @@ namespace Task2
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void lblMap_Click(object sender, EventArgs e)

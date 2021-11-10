@@ -118,20 +118,9 @@ namespace Task2
             }
         }
 
-
-        private Create(TileType.Hero)
-
-        {
-            for(int e = 0; e< _NUMBEROFENEMIES; e++)
-            {
-                Create(TileType.Enemy);
-                return TileType.Enemy;
-            }
-        }
-
         public void Create(TileType TypeOfTile, int X = 0, int Y = 0)
         {
-            switch(TypeOfTile)
+            switch (TypeOfTile)
             {
                 case TileType.Barrier:
                     Obstacle NewBarrier = new Obstacle(X, Y, " ", TypeOfTile);
@@ -151,8 +140,24 @@ namespace Task2
                         HeroY = RANDOM_NUMBER_GENERATOR.Next(0, MAPHEIGHT);
                     }
             }
-            
         }
+
+
+                    private void Create(TileType.Hero)
+                    {
+
+
+                        for (int e = 0; e < _NUMBEROFENEMIES; e++)
+                        {
+                            Create(TileType.Enemy);
+
+                        }
+                    }
+        
+
+       
+            
+        
 
         
 

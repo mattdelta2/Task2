@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Hero : HeroBase
+    public abstract class Hero
     {
-        public Hero(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE )
+        public Hero(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
         {
 
         }
@@ -53,6 +53,15 @@ namespace Task2
 
 
         }
+
+        public Hero(int x, int y, TileType tYPEOFTILE, string sYMBOL)
+        {
+            this.x = x;
+            this.y = y;
+            typeoftile = tYPEOFTILE;
+            symbol = sYMBOL;
+        }
+
         private List<Tile> vision;
         public List<Tile> VISION
         {
@@ -74,6 +83,35 @@ namespace Task2
             throw new NotImplementedException();
         }
 
+        private int DistanceTo(Character target)
+        {
+            return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
+        }
+
+        public void Move(MovementDirtection CharacterMove)
+        {
+            switch (CharacterMove)
+            {
+                case MovementDirtection.Up:
+                    Y--;
+                    break;
+                case MovementDirtection.Down:
+                    Y++;
+                    break;
+                case MovementDirtection.Left:
+                    X--;
+                    break;
+                case MovementDirtection.Right:
+                    X++;
+                    break;
+
+            }
+
+        }
+
+        public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
+        public abstract override string ToString();
+
         public override string ToString()
         {
             string INFO = "Player Stats: \n";
@@ -81,7 +119,7 @@ namespace Task2
             INFO += "Damage: " + DAMAGE.ToString();
         }
 
-        bool CheckForValidMovement(MovementDirection CharacterMove)
+        private bool CheckForValidMovement(MovementDirection CharacterMove)
         {
             bool IsValid = false;
             switch (CharacterMove)
@@ -89,9 +127,9 @@ namespace Task2
                 case MovementDirection.Right:
                     foreach (Tile T in VISION)
                     {
-                        if(T.X == X +1)
+                        if (T.X == X + 1)
                         {
-                            if(T.TYPEOFTILE == FileType.Empty)
+                            if (T.TYPEOFTILE == TileType.Empty)
                             {
                                 IsValid = true;
                                 break;
@@ -103,9 +141,9 @@ namespace Task2
                 case MovementDirection.Up:
                     foreach (Tile T in VISION)
                     {
-                        if(T.Y == Y +1)
+                        if (T.Y == Y + 1)
                         {
-                            if(T.TYPEOFTILE == FileType.Empty)
+                            if (T.TYPEOFTILE == TileType.Empty)
                             {
                                 IsValid = true;
                                 break;
@@ -116,9 +154,9 @@ namespace Task2
                 case MovementDirection.Left:
                     foreach (Tile T in VISION)
                     {
-                        if(T.X == X -1)
+                        if (T.X == X - 1)
                         {
-                            if (T.TYPEOFTILE == FileType.Empty)
+                            if (T.TYPEOFTILE == TileType.Empty)
                             {
                                 IsValid = true;
                                 break;
@@ -130,9 +168,9 @@ namespace Task2
                 case MovementDirection.Down:
                     foreach (Tile T in VISION)
                     {
-                        if(T.Y == Y-1)
+                        if (T.Y == Y - 1)
                         {
-                            if(T.TYPEOFTILE == FileType.Empty)
+                            if (T.TYPEOFTILE == TileType.Empty)
                             {
                                 IsValid = true;
                                 break;
@@ -145,5 +183,49 @@ namespace Task2
             }
         }
 
+       
+
+    }   
+    public class Character : Hero
+    {
+        public Character(int _X, int _Y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE) :
+        base(_X, _Y, _TYPEOFTILE, _SYMBOL)
+        {
+
+
+        }
+
+        public virtual void Attack(Character Target)
+        {
+            Target.HP -= DAMAGE;
+        }
+
+        public bool IsDead()
+        {
+            if (HP <= 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public virtual bool CheckRange(Character Target)
+        {
+            int ReachableDistance = 1;
+            if (DistanceTo(Target) <= ReachableDistance)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private int DistanceTo(Character target)
+        {
+            return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
+        }
+
+        public abstract override string ToString();
     }
+
+
 }

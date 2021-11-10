@@ -180,7 +180,7 @@ namespace Task2
 
         }
     }
-    }
+    
 
 
     public class Mage : Enemy
@@ -268,4 +268,4 @@ namespace Task2
         }
     }
     }
-}
+
